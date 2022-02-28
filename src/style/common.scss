@@ -1,0 +1,243 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: '';
+  visibility: hidden;
+  height: 0;
+}
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+
+/* page change */
+$--transition-time: 300ms;
+.back-enter-active,
+.back-leave-active,
+.forward-enter-active,
+.forward-leave-active {
+  will-change: transform;
+  transition: transform $--transition-time;
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+.back-enter {
+  opacity: 0.75;
+  transform: translate3d(-50%, 0, 0) !important;
+}
+.back-enter-active {
+  z-index: -1 !important;
+  transition: transform $--transition-time;
+}
+.back-leave-active {
+  transform: translate3d(100%, 0, 0) !important;
+  transition: transform $--transition-time;
+}
+.forward-enter {
+  transform: translate3d(100%, 0, 0) !important;
+}
+.forward-enter-active {
+  transition: transform $--transition-time;
+}
+.forward-leave-active {
+  z-index: -1;
+  opacity: 0.65;
+  transform: translate3d(-50%, 0, 0) !important;
+  transition: transform $--transition-time;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.flex-between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+.truncate{
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.my-btn{
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 2px;
+  line-height: 24px;
+
+  color: #fff;
+}
+.break{
+  overflow-wrap: break-word;
+}
+.bg-white{
+  background-color: #fff;
+}
+.container{
+  .container-inner{
+    position: relative;
+    padding-bottom: 50px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 0;
+  
+  }
+  .container-inner-with-navbar{
+    height: calc(100% - 46px);
+  }
+  .container-inner-with-search{
+    height: calc(100% - 54px) ;
+  }
+  &-inner-p{
+    padding: 8px;
+    position: relative;
+    
+    height: 100%;
+  }
+  height: auto;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.border-1{
+  border-bottom: 1px solid #ebedf0;
+  &:nth-last-of-type(1){
+    border: none;
+  }
+}
+.pd{
+  padding: 8px;
+}
+.px{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.pl{
+  padding-left: 8px;
+}
+.py{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.pb{
+  padding-bottom: 8px;
+}
+.mg{
+  margin: 8px;
+}
+.mx{
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.ml{
+  margin-left: 8px;
+}
+.my{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.mt{
+  margin-top: 8px;
+}
+.van-icon{
+  color: #878686;
+}
+// card
+.card{
+ margin-bottom: 8px;
+  padding: 8px;
+  background-color:#fff;
+  box-shadow: 1px 1px 5px 1px #e6e4e49c;
+  border-radius: 2px;
+  .card-title{
+    color: $--text-title;
+    font-weight: bold;
+    margin-bottom: 8px;
+    &::before{
+      display: inline-block;
+      content: '';
+      width: 4px;
+      height: 10px;
+      background-color: $--color-green;
+      margin-right: 6px;
+    }
+
+  }
+  .card-content{
+    .item{
+      color: $--text-primary;
+
+    }
+  }
+}
+.article-list{
+  i{
+    margin-right: 2px;
+  }
+  .item{
+    padding: 8px;
+    .type{
+      // padding: 2px 8px;
+      background-color: $--color-primary-bg;
+      color: #fff;
+    }
+    .title{
+      color: $--text-title;
+      // font-size: 14px;
+    }
+    .desc{
+       color: $--text-primary;
+    }
+    border-bottom: 1px solid $--border-color;
+    &:nth-last-of-type(1){
+      border: none;
+    }
+  } 
+}
+.text-desc{
+  color: $--text-time;
+}
+.text-gray{
+  color: $--text-note;
+}
+.text-primary{
+  color: $--text-primary;
+}
+.text-blue{
+  color: $--text-blue;
+}
+.vant-blue{
+  color: $--vant-blue;
+}
+.mt-0.van-divider{
+  margin-top: 0 !important;
+}
+.m-0.van-divider{
+  margin: 0 !important;
+}
+.van-nav-bar__left, .van-nav-bar__right{
+  padding: 0 8px;
+}
+.van-button--small{
+  font-size: 14px;
+}
+.van-tabbar-item--active{
+  color: $--color-green;
+}
+.van-tabbar-item.van-tabbar-item--active .van-tabbar-item__icon .van-icon{
+  color: $--color-green;
+}
