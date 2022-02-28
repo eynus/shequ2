@@ -88,7 +88,7 @@
 
 <script>
 import { Icon, Button, Tabbar, TabbarItem, Swipe, SwipeItem } from 'vant'
-import { mapActions, mapMutations, mapState } from 'vuex' // createNamespacedHelpers
+import { mapMutations } from 'vuex' // createNamespacedHelpers
 
 import Note from 'components/Note.vue'
 import { searchInfo, visitLog } from '@/api/global.js'
@@ -209,17 +209,9 @@ export default {
     this.getList()
   },
   computed: {
-    ...mapState({
-      loading: state => state['@@loading'].effects['test/onePlusAsync']
-    })
+
   },
   methods: {
-    add () {
-      this.onePlusAsync(this.value)
-    },
-    addOne () {
-      this.onePlus(1)
-    },
     getList (data, container) {
       const params = {
         pageIndex: 1,
@@ -235,15 +227,11 @@ export default {
         }))
       })
     },
-    // ...mapActions('home', ['initData', 'plusPage', 'initPage']),
-    ...mapActions({
-      onePlusAsync: 'test/onePlusAsync'
-    }),
+
     to (path) {
       this.$router.push(path)
     },
     ...mapMutations({
-      onePlus: 'test/onePlus',
       logout: 'user/LOGOUT'
     })
   }

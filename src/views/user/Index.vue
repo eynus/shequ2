@@ -109,14 +109,11 @@ export default {
     }
   },
   mounted () {
-    window.scrollTo(0, 0)
-    console.log(this.user, 'user')
     this.avatar = this.GlobalCfg.apiUrl + this.user.photo.filePath
   },
   methods: {
     handleUpdateUser () {
       this.userInfo = getUserInfo()
-      console.log(getUserInfo(), 'getUserInfo')
       if (this.userInfo.photo) {
         this.avatar =
           this.GlobalCfg.apiUrl + this.userInfo.photo.filePath

@@ -228,7 +228,6 @@ export default {
       this.$router.push(path)
     },
     toEditor () {
-      console.log('user', this.user)
       if (!this.user) {
         this.$dialog.confirm({
           message: '您尚未登录无法发帖，是否登录?'

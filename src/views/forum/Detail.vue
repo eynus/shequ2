@@ -18,7 +18,7 @@
         <!-- 正文 -->
         <div class="">
           <div class="pd">
-            <div class="font-bold truncate">
+            <div class="font-bold truncate article-title text-primary">
               <span>{{ data.title }}</span>
             </div>
             <!-- 作者，时间 -->
@@ -261,8 +261,6 @@ export default {
   },
   methods: {
     init () {
-      // this.id = +this.$route.query.id
-      console.log(1555)
       this.getList('detail', { id: this.$route.query.id }, 'data')
     },
     getList (action, data, container, cb) {
@@ -329,7 +327,6 @@ export default {
       // this.selectedTopComment = topitem
       this.topCommentid = (topitem && topitem.id) || 0
       this.commentid = (toitem && toitem.id) || 0
-      console.log(this.$refs)
       this.$refs['editorContainer' + index][0].appendChild(
         document.getElementById('editorChildEl')
       )

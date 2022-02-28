@@ -14,7 +14,7 @@
     >
       <template #right>
         <span
-          v-if="data.status === '报名中'"
+          v-if="data.status === '报名中' && false"
           class="vant-blue"
           @click="showDialog('Join')"
           >报名</span
@@ -22,11 +22,38 @@
       </template></van-nav-bar
     >
     <div class="container-inner container-inner-with-navbar bg-white pd">
-      <top-note
+      <!-- <top-note
         :title="data.title"
         :view="data.visibility"
         :time="data.posttime"
-      ></top-note>
+      ></top-note> -->
+      <div class="font-bold pb text-primary article-title">
+        <span>{{ data.title }}</span>
+      </div>
+      <div class="text-desc">
+        <span class="top-label">报名时间：</span>
+        <span>
+          {{ data.startSignTime | myFormatDate('YYYY-MM-DD HH:MM') }}</span
+        >
+        <span class="divider">至</span>
+        <span> {{ data.endSignTime | myFormatDate('YYYY-MM-DD HH:MM') }}</span>
+      </div>
+      <div class="text-desc">
+        <span class="top-label">活动时间：</span>
+        <span> {{ data.startTime | myFormatDate('YYYY-MM-DD HH:MM') }}</span>
+        <span class="divider">至</span>
+        <span> {{ data.endTime | myFormatDate('YYYY-MM-DD HH:MM') }}</span>
+      </div>
+      <div class="text-desc">
+        <span class="top-label">报名人数：</span>
+        <span> {{ data.signCount }}</span>
+      </div>
+      <span
+        v-if="data.status === '报名中'"
+        class="my-btn join-btn my"
+        @click="showDialog('Join')"
+        >报名</span
+      >
       <van-divider class="mt-0" />
 
       <div v-html="data.content"></div>
@@ -117,7 +144,7 @@ export default {
       const params = {
         action: 'detail'
       }
-      getDetail(params, { id: this.$route.query.id }).then(res => {
+      getActivityList(params, { id: this.$route.query.id }).then(res => {
         this['data'] = res.data
       })
     },
@@ -139,7 +166,6 @@ export default {
       console.log('failed', errorInfo)
     },
     showDialog (flag) {
-      console.log(flag, 'flag')
       if (!this.user) {
         this.$dialog.confirm({
           message: '您尚未登录无法报名，是否登录?'
@@ -166,5 +192,9 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .van-form{
   margin: 20px 0;
+}
+.join-btn{
+  background-color: $--color-primary-bg;
+padding: 0  16px;
 }
 </style>

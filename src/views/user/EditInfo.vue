@@ -127,7 +127,6 @@ export default {
       const fd = new FormData()
       const f = this.uploader[0]
       if (f && !f.status) {
-        console.log(f, 'f', f.raw, f.file.name)
         fd.append('file', f.file, f.file.name)
         uploadPhoto(fd).then(res => {
           let data = Object.assign({}, this.form, {
@@ -164,11 +163,9 @@ export default {
       console.log('failed', errorInfo)
     },
     afterRead (file, file2) {
-      console.log(file)
-
       if (this.uploader.length > 1) {
         this.uploader.shift()
-      } console.log(this.uploader)
+      }
     },
     handleUpdateUser () {
       this.userInfo = getUserInfo()

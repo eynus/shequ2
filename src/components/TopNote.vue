@@ -6,7 +6,7 @@
 -->
 <template>
   <div class="box text-desc">
-    <div class="font-bold pb text-primary">
+    <div class="font-bold pb text-primary article-title">
       <span>{{ title }}</span>
     </div>
     <div class="note-box pb">

@@ -22,7 +22,6 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
-    console.log('store.getters[:', store.getters['user/token'])
     if (store.getters['user/token']) {
       config.headers['token'] = getToken()
     }
